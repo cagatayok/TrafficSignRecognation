@@ -1,4 +1,20 @@
-🚦 GTSRB Traffic Sign Recognition SystemThis project implements a real-world traffic sign recognition system using a Convolutional Neural Network (CNN) trained on the official GTSRB (German Traffic Sign Recognition Benchmark) dataset. The system supports full model training and real-time inference via webcam.✨ Features✅ Real Dataset: Uses the authentic GTSRB benchmark.✅ CNN Training: Complete pipeline from preprocessing to model saving.✅ Real-Time Inference: Live detection and classification via webcam.✅ Robust Preprocessing: Includes data augmentation (rotation, zoom, brightness).📂 Project StructurePlaintext.
+# 🚦 GTSRB Traffic Sign Recognition System
+
+This project implements a **real-world traffic sign recognition system** using a **Convolutional Neural Network (CNN)** trained on the official **GTSRB (German Traffic Sign Recognition Benchmark)** dataset. The system supports full model training and real-time inference via webcam.
+
+---
+
+## ✨ Features
+* ✅ **Real Dataset:** Uses the authentic GTSRB benchmark.
+* ✅ **CNN Training:** Complete pipeline from preprocessing to model saving.
+* ✅ **Real-Time Inference:** Live detection and classification via webcam.
+* ✅ **Robust Preprocessing:** Includes data augmentation (rotation, zoom, brightness).
+
+---
+
+## 📂 Project Structure
+```text
+.
 ├── main.py                 # Core application (Training & Inference)
 ├── README.md               # Project documentation
 ├── gtsrb_real_model.h5     # Trained model (Generated after training)
