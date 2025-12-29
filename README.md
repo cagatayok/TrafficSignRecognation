@@ -133,6 +133,7 @@ Source code is free to use for educational and non-commercial purposes
 ✅ Summary
 This repository provides:
 
+
 A complete real dataset training pipeline
 
 A real-time traffic sign detection system
@@ -141,3 +142,10 @@ Clear instructions to reproduce results locally
 
 Simply download the dataset, place it in the correct folder,
 and run the project to get started.
+```
+## 📸 Ekran Görüntüleri
+
+<p align="center">
+  <img src="fone.png" width="700">
+</p>
+
