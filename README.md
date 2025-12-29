@@ -1,27 +1,143 @@
-# 🚦 GTSRB Traffic Sign Recognition System
+# 🚦 GTSRB Traffic Sign Recognition (Real Dataset)
 
-This project implements a **real-world traffic sign recognition system** using a **Convolutional Neural Network (CNN)** trained on the official **GTSRB (German Traffic Sign Recognition Benchmark)** dataset. The system supports full model training and real-time inference via webcam.
+This project implements a **real traffic sign recognition system** using a  
+**Convolutional Neural Network (CNN)** trained on the official  
+**GTSRB – German Traffic Sign Recognition Benchmark** dataset.  
+The system supports **model training** and **real-time traffic sign detection**
+via a webcam.
 
----
-
-## ✨ Features
-* ✅ **Real Dataset:** Uses the authentic GTSRB benchmark.
-* ✅ **CNN Training:** Complete pipeline from preprocessing to model saving.
-* ✅ **Real-Time Inference:** Live detection and classification via webcam.
-* ✅ **Robust Preprocessing:** Includes data augmentation (rotation, zoom, brightness).
+✅ Real dataset (GTSRB)  
+✅ Real CNN training  
+✅ Real-time webcam inference  
+❌ No synthetic or fake data  
 
 ---
 
 ## 📂 Project Structure
+
 ```text
 .
-├── main.py                 # Core application (Training & Inference)
-├── README.md               # Project documentation
-├── gtsrb_real_model.h5     # Trained model (Generated after training)
-└── gtsrb/                  # Dataset directory (Manual download required)
+├── main.py
+├── README.md
+└── gtsrb/                    # NOT included in repository
     └── Training/
-        ├── 00000/          # Speed limit (20km/h)
-        ├── 00001/          # Speed limit (30km/h)
-        └── ...             # Total 43 classes
-⚠️ Note: The dataset and trained .h5 files are excluded from this repository due to file size and licensing restrictions.📦 Getting Started1. Download the DatasetThis project requires the official GTSRB dataset.Source: GTSRB Dataset LinkFormat: Extract the files so that .ppm images are located in gtsrb/Training/{class_id}/.2. UsageRun the main script to either start training or launch the webcam detection:Bashpython main.py
-First Run: If gtsrb_real_model.h5 is missing, the script starts Training Mode.Subsequent Runs: If the model exists, it launches Webcam Inference Mode.🧠 Model ArchitectureLayerTypeDetailsInputImage48 × 48 RGBConvolutionalFeature ExtractionMulti-layer Conv2D + ReLURegularizationOptimizationBatch Normalization & DropoutOptimizerAdamAdaptive learning rateLoss FunctionLossSparse Categorical Crossentropy🎥 Real-Time DetectionThe system detects red traffic sign candidate regions, crops them, and classifies them using the trained CNN.🎮 ControlsQ / ESC: Exit ApplicationSPACE: Save Screenshot+ / -: Increase / Decrease Confidence Threshold⚠️ Notes & LimitationsHardware: Training time depends on your GPU/CPU (approx. 20-30 mins).Environment: Detection accuracy depends on lighting conditions and camera quality.Purpose: This project is intended for educational and research purposes.📜 LicenseThe GTSRB dataset license belongs to its original authors.The Source code is free to use for educational and non-commercial purposes.
+        ├── 00000/
+        ├── 00001/
+        ├── ...
+        └── 00042/
+⚠️ The dataset and trained model files are intentionally excluded from GitHub
+due to file size and dataset licensing restrictions.
+
+📦 Dataset (Required)
+This project uses the official GTSRB dataset published by the
+German Traffic Sign Recognition Benchmark.
+
+🔗 Download link:
+https://benchmark.ini.rub.de/gtsrb_dataset.html
+
+After downloading, extract the dataset and place it in the project root
+with the following structure:
+
+text
+Kodu kopyala
+gtsrb/Training/00000/*.ppm
+Each folder (00000 – 00042) represents one traffic sign class
+
+Images must be in .ppm format (original dataset format)
+
+🧠 Model Architecture
+Type: Convolutional Neural Network (CNN)
+
+Input size: 48 × 48 RGB
+
+Number of classes: 43
+
+Optimizer: Adam
+
+Loss function: Sparse Categorical Crossentropy
+
+Regularization:
+
+Batch Normalization
+
+Dropout layers
+
+📁 Trained model file:
+
+text
+Kodu kopyala
+gtsrb_real_model.h5
+🎓 Model Training
+If the trained model file does not exist, the system will
+automatically start training when executed.
+
+bash
+Kodu kopyala
+python main.py
+Training features:
+
+Data augmentation (rotation, zoom, brightness)
+
+Validation split
+
+Early stopping to prevent overfitting
+
+Best model checkpoint saving
+
+⏱ Training time depends on hardware and dataset size
+(typically 20–30 minutes on a standard GPU system).
+
+🎥 Real-Time Traffic Sign Detection
+If gtsrb_real_model.h5 already exists, the program directly starts
+the webcam-based detection mode.
+
+The system:
+
+Detects red traffic sign candidate regions
+
+Crops detected regions
+
+Resizes them to the model input size
+
+Classifies them using the trained CNN
+
+Displays class name and confidence score in real time
+
+🎮 Controls
+Q / ESC → Exit
+
+SPACE → Save screenshot
+
++ / - → Increase / decrease confidence threshold
+
+⚠️ Notes & Limitations
+Dataset and trained .h5 model file are not included
+
+Intended for educational and research purposes
+
+Detection accuracy depends on:
+
+Lighting conditions
+
+Camera quality
+
+Distance and angle of the traffic sign
+
+Real-world deployment requires further optimization
+
+📜 License
+GTSRB dataset license belongs to its original authors
+
+Source code is free to use for educational and non-commercial purposes
+
+✅ Summary
+This repository provides:
+
+A complete real dataset training pipeline
+
+A real-time traffic sign detection system
+
+Clear instructions to reproduce results locally
+
+Simply download the dataset, place it in the correct folder,
+and run the project to get started.
