@@ -1,97 +1,11 @@
-# 🚦 GTSRB Traffic Sign Recognition (Real Dataset)
-
-This project trains a **Convolutional Neural Network (CNN)** using the official  
-**GTSRB – German Traffic Sign Recognition Benchmark** dataset and performs  
-**real-time traffic sign detection** via webcam.
-
-✅ Real dataset  
-✅ Real CNN training  
-✅ Real-time inference  
-❌ No synthetic or fake data  
-
----
-
-## 📂 Project Structure
-
-.
-├── main.py
-├── README.md
-└── gtsrb/              # (NOT included in repository)
+🚦 GTSRB Traffic Sign Recognition SystemThis project implements a real-world traffic sign recognition system using a Convolutional Neural Network (CNN) trained on the official GTSRB (German Traffic Sign Recognition Benchmark) dataset. The system supports full model training and real-time inference via webcam.✨ Features✅ Real Dataset: Uses the authentic GTSRB benchmark.✅ CNN Training: Complete pipeline from preprocessing to model saving.✅ Real-Time Inference: Live detection and classification via webcam.✅ Robust Preprocessing: Includes data augmentation (rotation, zoom, brightness).📂 Project StructurePlaintext.
+├── main.py                 # Core application (Training & Inference)
+├── README.md               # Project documentation
+├── gtsrb_real_model.h5     # Trained model (Generated after training)
+└── gtsrb/                  # Dataset directory (Manual download required)
     └── Training/
-        ├── 00000/
-        ├── 00001/
-        ├── ...
-        └── 00042/
-
-⚠️ Dataset and trained model files are intentionally excluded from GitHub
-due to size and licensing restrictions.
-
----
-
-## 📦 Dataset (Required)
-
-This project uses the **official GTSRB dataset**.
-
-Download link:
-https://benchmark.ini.rub.de/gtsrb_dataset.html
-
-Expected folder structure:
-gtsrb/Training/00000/*.ppm
-
-Each folder (00000–00042) represents a traffic sign class.
-
----
-
-## 🧠 Model Details
-
-- Convolutional Neural Network (CNN)
-- Input size: 48x48 RGB
-- Number of classes: 43
-- Optimizer: Adam
-- Loss function: Sparse Categorical Crossentropy
-- Regularization: Batch Normalization & Dropout
-
-Trained model file:
-gtsrb_real_model.h5
-
----
-
-## 🎓 Training
-
-If the trained model does not exist, training starts automatically.
-
-python main.py
-
-Training includes:
-- Data augmentation (rotation, zoom, brightness)
-- Early stopping
-- Best model checkpointing
-
----
-
-## 🎥 Real-Time Detection
-
-If `gtsrb_real_model.h5` exists, webcam detection can be started directly.
-
-Controls:
-- Q / ESC → Exit
-- SPACE → Screenshot
-- + / - → Confidence threshold adjustment
-
-The system detects red traffic sign regions, crops them,
-and classifies them using the trained CNN.
-
----
-
-## ⚠️ Notes
-
-- Dataset and `.h5` model file are not included in this repository.
-- Intended for educational and research purposes.
-- Webcam performance depends on lighting conditions.
-
----
-
-## 📜 License
-
-Dataset license belongs to the GTSRB authors.
-Source code is free to use for educational purposes.
+        ├── 00000/          # Speed limit (20km/h)
+        ├── 00001/          # Speed limit (30km/h)
+        └── ...             # Total 43 classes
+⚠️ Note: The dataset and trained .h5 files are excluded from this repository due to file size and licensing restrictions.📦 Getting Started1. Download the DatasetThis project requires the official GTSRB dataset.Source: GTSRB Dataset LinkFormat: Extract the files so that .ppm images are located in gtsrb/Training/{class_id}/.2. UsageRun the main script to either start training or launch the webcam detection:Bashpython main.py
+First Run: If gtsrb_real_model.h5 is missing, the script starts Training Mode.Subsequent Runs: If the model exists, it launches Webcam Inference Mode.🧠 Model ArchitectureLayerTypeDetailsInputImage48 × 48 RGBConvolutionalFeature ExtractionMulti-layer Conv2D + ReLURegularizationOptimizationBatch Normalization & DropoutOptimizerAdamAdaptive learning rateLoss FunctionLossSparse Categorical Crossentropy🎥 Real-Time DetectionThe system detects red traffic sign candidate regions, crops them, and classifies them using the trained CNN.🎮 ControlsQ / ESC: Exit ApplicationSPACE: Save Screenshot+ / -: Increase / Decrease Confidence Threshold⚠️ Notes & LimitationsHardware: Training time depends on your GPU/CPU (approx. 20-30 mins).Environment: Detection accuracy depends on lighting conditions and camera quality.Purpose: This project is intended for educational and research purposes.📜 LicenseThe GTSRB dataset license belongs to its original authors.The Source code is free to use for educational and non-commercial purposes.
