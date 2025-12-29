@@ -80,7 +80,7 @@ Data augmentation (rotation, zoom, brightness)
 
 Validation split
 
-Early stopping to prevent overfitting
+Early stopping
 
 Best model checkpoint saving
 
